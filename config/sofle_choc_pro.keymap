@@ -1,8 +1,19 @@
+/*
+ * Sofle Choc Pro BT — Keebart
+ * Layout : QWERTY macOS | Développeur Flutter / Dart / C#
+ * Bluetooth : Christian
+ *
+ * Accents français via "Unicode Hex Input" (input source macOS)
+ * Activer dans : Préférences Système → Clavier → Sources de saisie → Unicode Hex Input
+ * Méthode : maintenir Option + taper les 4 chiffres hex du caractère Unicode
+ *   é = 00E9 | è = 00E8 | ê = 00EA | à = 00E0 | ù = 00F9 | ç = 00E7
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/ext_power.h>
 
 #define DEFAULT 0
@@ -25,98 +36,93 @@
 
     // ─────────────────────────────────────────────────────────────────────────
     // Macros
-    //   Accents français : Option + touche morte → lettre  (macOS QWERTY)
+    //   Accents français : Unicode Hex Input (Option + 4 chiffres hex)
     //   Opérateurs Dart  : séquences de touches
     // ─────────────────────────────────────────────────────────────────────────
     macros {
 
-        // é  — Option+E puis E
+        // é — U+00E9
         fr_e_acute: fr_e_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press   &kp LALT>,
-                <&macro_tap     &kp E>,
-                <&macro_release &kp LALT>,
-                <&macro_tap     &kp E>;
+                <&macro_tap     &kp N0 &kp N0 &kp E &kp N9>,
+                <&macro_release &kp LALT>;
         };
 
-        // è  — Option+` puis E
+        // è — U+00E8
         fr_e_grave: fr_e_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press   &kp LALT>,
-                <&macro_tap     &kp GRAVE>,
-                <&macro_release &kp LALT>,
-                <&macro_tap     &kp E>;
+                <&macro_tap     &kp N0 &kp N0 &kp E &kp N8>,
+                <&macro_release &kp LALT>;
         };
 
-        // ê  — Option+I puis E
+        // ê — U+00EA
         fr_e_circ: fr_e_circ {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press   &kp LALT>,
-                <&macro_tap     &kp I>,
-                <&macro_release &kp LALT>,
-                <&macro_tap     &kp E>;
+                <&macro_tap     &kp N0 &kp N0 &kp E &kp A>,
+                <&macro_release &kp LALT>;
         };
 
-        // à  — Option+` puis A
+        // à — U+00E0
         fr_a_grave: fr_a_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press   &kp LALT>,
-                <&macro_tap     &kp GRAVE>,
-                <&macro_release &kp LALT>,
-                <&macro_tap     &kp A>;
+                <&macro_tap     &kp N0 &kp N0 &kp E &kp N0>,
+                <&macro_release &kp LALT>;
         };
 
-        // ù  — Option+` puis U
+        // ù — U+00F9
         fr_u_grave: fr_u_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press   &kp LALT>,
-                <&macro_tap     &kp GRAVE>,
-                <&macro_release &kp LALT>,
-                <&macro_tap     &kp U>;
+                <&macro_tap     &kp N0 &kp N0 &kp F &kp N9>,
+                <&macro_release &kp LALT>;
         };
 
-        // ç  — Option+C  (direct sur macOS QWERTY)
+        // ç — U+00E7
         fr_c_cedil: fr_c_cedil {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
                 <&macro_press   &kp LALT>,
-                <&macro_tap     &kp C>,
+                <&macro_tap     &kp N0 &kp N0 &kp E &kp N7>,
                 <&macro_release &kp LALT>;
         };
 
-        // =>  fat arrow Dart / C#
+        // => fat arrow Dart / C#
         op_arrow: op_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp EQUAL &kp GT>;
         };
 
-        // ??  null coalescing Dart / C#
+        // ?? null coalescing Dart / C#
         op_null_coal: op_null_coal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp QMARK &kp QMARK>;
         };
 
-        // ..  cascade operator Dart / Flutter
+        // .. cascade operator Dart / Flutter
         op_cascade: op_cascade {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp DOT &kp DOT>;
         };
 
-        // ?.  null-aware access Dart
+        // ?. null-aware access Dart
         op_null_acc: op_null_acc {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -162,6 +168,7 @@
 //                 ╰───────┴───────┴───────┴───────┴────────╯ ╰────────┴───────┴───────┴───────┴───────╯
 
         default_layer {
+            display-name = "default";
             bindings = <
 &kp ESC   &kp N1    &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp DEL
 &kp TAB   &kp Q     &kp W    &kp E    &kp R     &kp T                            &kp Y     &kp U     &kp I     &kp O    &kp P    &kp BSPC
@@ -187,63 +194,66 @@
 //                 ╰───────┴───────┴───────┴───────┴────────╯ ╰────────┴───────┴───────┴───────┴───────╯
 
         lower_layer {
+            display-name = "lower";
             bindings = <
 &trans &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                  &kp F6         &kp F7         &kp F8         &kp F9          &kp F10 &kp F11
 &trans &none     &kp HOME  &kp UP    &kp END   &kp PG_UP               &msc SCRL_UP   &none          &mmv MOVE_UP   &none           &none   &kp F12
 &trans &none     &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN               &msc SCRL_DOWN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none   &trans
 &trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &none     &trans &trans &none          &mkp LCLK      &mkp MCLK      &mkp RCLK       &none   &trans
-                 &trans    &trans    &trans    &mo LOWER &trans        &trans         &trans         &trans         &trans          &trans
+                 &trans    &trans    &trans    &mo LOWER &trans &trans &trans         &trans         &trans         &trans
             >;
             sensor-bindings = <&enc_vol &enc_scroll>;
         };
 
-        // ── Layer 2 — Raise (symboles + accents + opérateurs dev) ────────────
-        //
-        // ╭───────┬───────┬───────┬───────┬───────┬───────╮                   ╭───────┬───────┬───────┬───────┬───────┬───────╮
-        // │       │  =>   │   é   │   è   │   ê   │  ??   │                   │  ..   │   à   │   ù   │   ç   │  ?.   │       │
-        // ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
-        // │       │   ^   │   <   │   >   │   $   │   %   │                   │   @   │   &   │   *   │   '   │   `   │       │
-        // ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
-        // │       │   {   │   (   │   )   │   }   │   =   │                   │   \   │   +   │   -   │   /   │   "   │       │
-        // ├───────┼───────┼───────┼───────┼───────┼───────┼────────╮ ╭────────┼───────┼───────┼───────┼───────┼───────┼───────┤
-        // │       │   ~   │   [   │   ]   │   _   │   #   │        │ │        │   |   │   !   │   .   │   :   │   ?   │       │
-        // ╰───────┴───────┼───────┼───────┼───────┼───────┼────────┤ ├────────┼───────┼───────┼───────┼───────┼───────┴───────╯
-        //                 │       │       │       │       │        │ │        │ RAISE │       │       │       │
-        //                 ╰───────┴───────┴───────┴───────┴────────╯ ╰────────┴───────┴───────┴───────┴───────╯
+// ── Layer 2 — Raise (symboles + accents + opérateurs dev) ────────────
+//
+// ╭───────┬───────┬───────┬───────┬───────┬───────╮                   ╭───────┬───────┬───────┬───────┬───────┬───────╮
+// │       │  =>   │   é   │   è   │   ê   │  ??   │                   │  ..   │   à   │   ù   │   ç   │  ?.   │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │   ^   │   <   │   >   │   $   │   %   │                   │   @   │   &   │   *   │   '   │   `   │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │   {   │   (   │   )   │   }   │   =   │                   │   \   │   +   │   -   │   /   │   "   │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┼────────╮ ╭────────┼───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │   ~   │   [   │   ]   │   _   │   #   │        │ │        │   |   │   !   │   .   │   :   │   ?   │       │
+// ╰───────┴───────┼───────┼───────┼───────┼───────┼────────┤ ├────────┼───────┼───────┼───────┼───────┼───────┴───────╯
+//                 │       │       │       │       │        │ │        │ RAISE │       │       │       │
+//                 ╰───────┴───────┴───────┴───────┴────────╯ ╰────────┴───────┴───────┴───────┴───────╯
 
         raise_layer {
+            display-name = "raise";
             bindings = <
 &trans &op_arrow  &fr_e_acute &fr_e_grave &fr_e_circ &op_null_coal               &op_cascade &fr_a_grave &fr_u_grave &fr_c_cedil &op_null_acc &trans
 &trans &kp CARET  &kp LT      &kp GT      &kp DLLR   &kp PRCNT                   &kp AT      &kp AMPS    &kp ASTRK   &kp SQT     &kp GRAVE    &trans
 &trans &kp LBRC   &kp LPAR    &kp RPAR    &kp RBRC   &kp EQUAL                   &kp BSLH    &kp PLUS    &kp MINUS   &kp FSLH    &kp DQT      &trans
 &trans &kp TILDE  &kp LBKT    &kp RBKT    &kp UNDER  &kp HASH      &trans &trans &kp PIPE    &kp EXCL    &kp DOT     &kp COLON   &kp QMARK    &trans
-       &trans     &trans      &trans      &trans     &trans                      &trans      &mo RAISE   &trans      &trans      &trans
+                  &trans      &trans      &trans     &trans        &trans &trans &mo RAISE   &trans      &trans      &trans
             >;
             sensor-bindings = <&enc_vol &enc_scroll>;
         };
 
-        // ── Layer 3 — Adjust (Bluetooth + RGB) ───────────────────────────────
-        //   Activé par LOWER + RAISE simultanément
-        //
-        // ╭───────┬───────┬───────┬───────┬───────┬───────╮                   ╭───────┬───────┬───────┬───────┬───────┬───────╮
-        // │BTCLR  │  BT1  │  BT2  │  BT3  │  BT4  │  BT5  │                   │       │       │       │       │       │       │
-        // ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
-        // │EXTPWR │RGB_HUD│RGB_HUI│RGB_SAD│RGB_SAI│RGB_EFF│                   │       │       │       │       │       │       │
-        // ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
-        // │       │RGB_BRD│RGB_BRI│       │       │       │                   │       │       │       │       │       │       │
-        // ├───────┼───────┼───────┼───────┼───────┼───────┼────────╮ ╭────────┼───────┼───────┼───────┼───────┼───────┼───────┤
-        // │       │       │       │       │       │STUDIO │RGB_TOG │ │        │       │       │       │       │       │       │
-        // ╰───────┴───────┼───────┼───────┼───────┼───────┼────────┤ ├────────┼───────┼───────┼───────┼───────┼───────┴───────╯
-        //                 │       │       │       │ LOWER │        │ │        │ RAISE │       │       │       │
-        //                 ╰───────┴───────┴───────┴───────┴────────╯ ╰────────┴───────┴───────┴───────┴───────╯
+// ── Layer 3 — Adjust (Bluetooth + RGB + Media + Reset) ───────────────
+//   Activé par LOWER + RAISE simultanément
+//
+// ╭───────┬───────┬───────┬───────┬───────┬───────╮                   ╭───────┬───────┬───────┬───────┬───────┬───────╮
+// │BTCLR  │  BT1  │  BT2  │  BT3  │  BT4  │  BT5  │                   │       │       │       │       │ RESET │  BOOT │
+// ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
+// │EXTPWR │RGB_HUD│RGB_HUI│RGB_SAD│RGB_SAI│RGB_EFF│                   │       │       │       │       │       │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┤                   ├───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │RGB_BRD│RGB_BRI│       │       │       │                   │ C_PRV │ C_PP  │ C_NXT │BRI_DN │BRI_UP │       │
+// ├───────┼───────┼───────┼───────┼───────┼───────┼────────╮ ╭────────┼───────┼───────┼───────┼───────┼───────┼───────┤
+// │       │       │       │       │       │STUDIO │RGB_TOG │ │        │       │       │       │       │       │       │
+// ╰───────┴───────┼───────┼───────┼───────┼───────┼────────┤ ├────────┼───────┼───────┼───────┼───────┼───────┴───────╯
+//                 │       │       │       │ LOWER │        │ │        │ RAISE │       │       │       │
+//                 ╰───────┴───────┴───────┴───────┴────────╯ ╰────────┴───────┴───────┴───────┴───────╯
 
         adjust_layer {
+            display-name = "adjust";
             bindings = <
-&bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                           &none     &none  &none  &none  &none &none
-&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                        &none     &none  &none  &none  &none &none
-&none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                  &none     &none  &none  &none  &none &none
-&none             &none           &none           &none           &none           &studio_unlock  &rgb_ug RGB_TOG &none  &none     &none  &none  &none  &none &none
-                  &trans          &trans          &trans          &mo LOWER       &trans                          &trans &mo RAISE &trans &trans &trans
+&bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                           &none      &none     &none      &none        &sys_reset   &bootloader
+&ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                        &none      &none     &none      &none        &none        &none
+&none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                  &kp C_PREV &kp C_PP  &kp C_NEXT &kp C_BRI_DN &kp C_BRI_UP &none
+&none             &none           &none           &none           &none           &studio_unlock  &rgb_ug RGB_TOG &none  &none      &none     &none      &none        &none        &none
+                                  &trans          &trans          &trans          &mo LOWER       &trans                 &trans     &mo RAISE &trans     &trans       &trans
             >;
             sensor-bindings = <&enc_vol &enc_scroll>;
         };
