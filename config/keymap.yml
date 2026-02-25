@@ -1,248 +1,187 @@
-layout: { zmk_keyboard: sofle_choc_pro }
+layout: {zmk_keyboard: sofle_choc_pro}
 layers:
-  default:
-    [
-      ESC,
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "0",
-      DEL,
-      TAB,
-      Q,
-      W,
-      E,
-      R,
-      T,
-      Y,
-      U,
-      I,
-      O,
-      P,
-      BSPC,
-      CAPS,
-      A,
-      S,
-      D,
-      F,
-      G,
-      H,
-      J,
-      K,
-      L,
-      ;,
-      "'",
-      LSHFT,
-      Z,
-      X,
-      C,
-      V,
-      B,
-      MUTE,
-      PLAY,
-      N,
-      M,
-      ",",
-      .,
-      /,
-      RSHFT,
-      LCTRL,
-      LALT,
-      LGUI,
-      lower,
-      RET,
-      SPACE,
-      raise,
-      RGUI,
-      RALT,
-      RCTRL,
-    ]
+  default: [ESC, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', DEL, TAB, Q, W, E, R, T, Y, U, I, O, P, BSPC, CAPS, A, S, D, F, G, H, J, K, L, ;, '''', LSHFT,
+    Z, X, C, V, B, MUTE, SPOT LIGHT, N, M, ',', ., /, RSHFT, LCTRL, LALT, LGUI, lower, RET, SPACE, raise, RGUI, RALT, RCTRL]
   lower:
-    - { t: ▽, type: trans }
-    - F1
-    - F2
-    - F3
-    - F4
-    - F5
-    - F6
-    - F7
-    - F8
-    - F9
-    - F10
-    - F11
-    - { t: ▽, type: trans }
-    - NXT WNDW
-    - HOME
-    - UP
-    - END
-    - PAGE UP
-    - SCROLL UP
-    - ""
-    - MOUSE UP
-    - ""
-    - ""
-    - F12
-    - { t: ▽, type: trans }
-    - VS PLTTE
-    - LEFT
-    - DOWN
-    - RIGHT
-    - PAGE DOWN
-    - SCROLL DOWN
-    - MOUSE LEFT
-    - MOUSE DOWN
-    - MOUSE RIGHT
-    - ""
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - UNDO
-    - CUT
-    - COPY
-    - PASTE
-    - ""
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - ""
-    - LEFT CLICK
-    - MIDDLE CLICK
-    - RIGHT CLICK
-    - ""
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: "lower", type: held }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
+  - {t: ▽, type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - {t: ▽, type: trans}
+  - ''
+  - HOME
+  - UP
+  - END
+  - PAGE UP
+  - SCRL UP
+  - ''
+  - MOVE UP
+  - ''
+  - ''
+  - F12
+  - {t: ▽, type: trans}
+  - ''
+  - LEFT
+  - DOWN
+  - RIGHT
+  - PAGE DOWN
+  - SCRL DOWN
+  - MOVE LEFT
+  - MOVE DOWN
+  - MOVE RIGHT
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - UNDO
+  - CUT
+  - COPY
+  - PASTE
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - L CLIK
+  - M CLIK
+  - R CLIK
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: lower, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   raise:
-    - { t: ▽, type: trans }
-    - ""
-    - "é"
-    - "è"
-    - "ê"
-    - ""
-    - ""
-    - "à"
-    - "ù"
-    - "ç"
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - ^
-    - <
-    - ">"
-    - $
-    - "%"
-    - "@"
-    - "&"
-    - "*"
-    - "'"
-    - "`"
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - "{"
-    - (
-    - )
-    - "}"
-    - "="
-    - \
-    - +
-    - "-"
-    - /
-    - '"'
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - "~"
-    - "["
-    - "]"
-    - _
-    - "#"
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - "|"
-    - "!"
-    - ;
-    - ":"
-    - "?"
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: raise, type: held }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
-    - { t: ▽, type: trans }
+  - {t: ▽, type: trans}
+  - =>
+  - é
+  - è
+  - ê
+  - ??
+  - ..
+  - à
+  - ù
+  - ç
+  - ?.
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ^
+  - <
+  - '>'
+  - $
+  - '%'
+  - '@'
+  - '&'
+  - '*'
+  - ''''
+  - '`'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '{'
+  - (
+  - )
+  - '}'
+  - '='
+  - \
+  - +
+  - '-'
+  - /
+  - '"'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '~'
+  - '['
+  - ']'
+  - _
+  - '#'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '|'
+  - '!'
+  - .
+  - ':'
+  - '?'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: raise, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   adjust:
-    - BT CLR
-    - { t: BT 1 }
-    - { t: BT 2 }
-    - { t: BT 3 }
-    - { t: BT 4 }
-    - { t: BT 5 }
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - EP TOG
-    - RGB HUD
-    - RGB HUI
-    - RGB SAD
-    - RGB SAI
-    - RGB EFF
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - RGB BRD
-    - RGB BRI
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - Studio unlock
-    - RGB TOG
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
-    - { t: lower, type: held }
-    - ""
-    - ""
-    - { t: raise, type: held }
-    - ""
-    - ""
-    - ""
+  - BT CLR
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - EP TOG
+  - RGB HUD
+  - RGB HUI
+  - RGB SAD
+  - RGB SAI
+  - RGB EFF
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - RGB BRD
+  - RGB BRI
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - STUDIO UNLOCK
+  - RGB TOG
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: lower, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: raise, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
