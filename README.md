@@ -31,7 +31,7 @@ LOWER + RAISE active automatiquement la layer **ADJUST** (conditional layer).
 ```
 
 - Encodeur gauche : volume
-- Encodeur droit : scroll souris
+- Encodeur droit : luminosité
 
 ### Layer 1 — Lower (navigation + souris)
 
