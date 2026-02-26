@@ -138,6 +138,16 @@
                 <&macro_tap     &kp N0 &kp N0 &kp N6 &kp N0>,
                 <&macro_release &kp LALT>;
         };
+
+        // ~ — U+007E
+        tilde: tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press   &kp LALT>,
+                <&macro_tap     &kp N0 &kp N0 &kp N7 &kp E>,
+                <&macro_release &kp LALT>;
+        };
     };
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -232,11 +242,11 @@
         raise_layer {
             display-name = "raise";
             bindings = <
-&trans &op_arrow  &fr_e_acute &fr_e_grave &fr_e_circ &op_null_coal               &op_cascade &fr_a_grave &fr_u_grave &fr_c_cedil &op_null_acc &trans
-&trans &kp CARET  &kp LT      &kp GT      &kp DLLR   &kp PRCNT                   &kp AT      &kp AMPS    &kp ASTRK   &kp SQT     &backtick    &trans
-&trans &kp LBRC   &kp LPAR    &kp RPAR    &kp RBRC   &kp EQUAL                   &kp BSLH    &kp PLUS    &kp MINUS   &kp FSLH    &kp DQT      &trans
-&trans &kp TILDE  &kp LBKT    &kp RBKT    &kp UNDER  &kp HASH      &trans &trans &kp PIPE    &kp EXCL    &kp COLON   &kp DOT     &kp QMARK    &trans
-                  &trans      &trans      &trans     &trans        &trans &trans &mo RAISE   &trans      &trans      &trans
+&trans &op_arrow &fr_e_acute &fr_e_grave &fr_e_circ &op_null_coal               &op_cascade &fr_a_grave &fr_u_grave &fr_c_cedil &op_null_acc &trans
+&trans &kp CARET &kp LT      &kp GT      &kp DLLR   &kp PRCNT                   &kp AT      &kp AMPS    &kp ASTRK   &kp SQT     &backtick    &trans
+&trans &kp LBRC  &kp LPAR    &kp RPAR    &kp RBRC   &kp EQUAL                   &kp BSLH    &kp PLUS    &kp MINUS   &kp FSLH    &kp DQT      &trans
+&trans &tilde    &kp LBKT    &kp RBKT    &kp UNDER  &kp HASH      &trans &trans &kp PIPE    &kp EXCL    &kp COLON   &kp DOT     &kp QMARK    &trans
+                 &trans      &trans      &trans     &trans        &trans &trans &mo RAISE   &trans      &trans      &trans
             >;
             sensor-bindings = <&enc_vol &enc_brightness>;
         };
